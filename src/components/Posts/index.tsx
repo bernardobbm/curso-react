@@ -1,5 +1,5 @@
 import { PostType } from '../../pages/Home';
-import { PostCart } from '../PostCart';
+import { PostCard } from '../PostCard';
 import './style.css';
 
 interface PostTypeArray {
@@ -10,7 +10,7 @@ export function Posts({ posts }: PostTypeArray) {
 	return (
 		<div className="posts">
 			{posts.map((post) => (
-				<PostCart
+				<PostCard
 					id={post.id}
 					title={post.title}
 					body={post.body}

@@ -1,7 +1,7 @@
 import { PostType } from '../../pages/Home';
 import './style.css';
 
-export function PostCart({ title, body, cover }: PostType) {
+export function PostCard({ title, body, cover }: PostType) {
 	return (
 		<div className="post">
 			<img
