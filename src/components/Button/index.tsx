@@ -6,10 +6,14 @@ interface propsButton {
 	onClick: () => void;
 }
 
-export function Button(props: propsButton) {
+export function Button({ text, disabled, onClick }: propsButton) {
 	return (
-		<button disabled={props.disabled} className="button" onClick={props.onClick}>
-			{props.text}
+		<button
+			disabled={disabled}
+			className="button"
+			onClick={onClick}
+		>
+			{text}
 		</button>
 	);
 }
