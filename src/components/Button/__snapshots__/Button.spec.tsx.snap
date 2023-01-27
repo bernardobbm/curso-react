@@ -1,0 +1,10 @@
+// Vitest Snapshot v1
+
+exports[`Button Component > should match snapshot 1`] = `
+<button
+  class="button"
+  disabled=""
+>
+  load more
+</button>
+`;
