@@ -2,15 +2,15 @@ import './style.css';
 
 interface TextInputProps {
 	handleInputChange: (e: any) => void;
-	searchValue: string;
+	searchValue?: string;
 }
 
-export function TextInput(props: TextInputProps) {
+export function TextInput({ searchValue, handleInputChange }: TextInputProps) {
 	return (
 		<input
 			type="search"
-			onChange={props.handleInputChange}
-			value={props.searchValue}
+			onChange={handleInputChange}
+			value={searchValue}
 			className="text-input"
 			placeholder="Type your search"
 		/>
