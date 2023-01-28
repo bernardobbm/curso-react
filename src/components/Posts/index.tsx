@@ -3,10 +3,10 @@ import { PostCard } from '../PostCard';
 import './style.css';
 
 interface PostTypeArray {
-	posts: PostType[];
+	posts?: PostType[];
 }
 
-export function Posts({ posts }: PostTypeArray) {
+export function Posts({ posts = [] }: PostTypeArray) {
 	return (
 		<div className="posts">
 			{posts.map((post) => (
