@@ -20,7 +20,12 @@ describe('<TextInput />', () => {
 	});
 
 	it('should call handleChange function on each key pressed', async () => {
-		render(<TextInput handleInputChange={fn} />);
+		render(
+			<TextInput
+				searchValue="this first value"
+				handleInputChange={fn}
+			/>
+		);
 
 		const value = 'this value';
 
@@ -28,12 +33,17 @@ describe('<TextInput />', () => {
 
 		await userEvent.type(inputText, value);
 
-		expect(inputText.value).toBe(value);
+		expect(inputText.value).toBe('this first value');
 		expect(fn).toHaveBeenCalledTimes(value.length);
 	});
 
 	it('should match snapshot', () => {
-		const { container } = render(<TextInput handleInputChange={fn} />);
+		const { container } = render(
+			<TextInput
+				searchValue=""
+				handleInputChange={fn}
+			/>
+		);
 
 		expect(container.firstChild).toMatchSnapshot();
 	});

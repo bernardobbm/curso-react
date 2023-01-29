@@ -2,7 +2,7 @@ import './style.css';
 
 interface TextInputProps {
 	handleInputChange: (e: any) => void;
-	searchValue?: string;
+	searchValue: string;
 }
 
 export function TextInput({ searchValue, handleInputChange }: TextInputProps) {
