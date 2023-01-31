@@ -1,3 +1,5 @@
+import fetch from 'cross-fetch';
+
 export async function loadPosts() {
 	const postsReponse = fetch('https://jsonplaceholder.typicode.com/posts');
 	const photosResponse = fetch('https://jsonplaceholder.typicode.com/photos');
