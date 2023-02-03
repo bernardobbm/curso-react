@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 import './style.css';
 import { loadPosts } from '../../utils/load-posts';
@@ -26,16 +26,16 @@ export function Home() {
 		? allPosts.filter((post) => post.title.toLowerCase().includes(searchValue.toLowerCase()))
 		: posts;
 
-	async function loadPostsInPage() {
+	const loadPostsInPage = useCallback(async (page: number, postsPerPage: number) => {
 		const postsAndPhotos = await loadPosts();
 
 		setPosts(postsAndPhotos.slice(page, postsPerPage));
 		setAllPosts(postsAndPhotos);
-	}
+	}, []);
 
 	useEffect(() => {
-		loadPostsInPage();
-	}, []);
+		loadPostsInPage(0, postsPerPage);
+	}, [loadPostsInPage, postsPerPage]);
 
 	function loadMorePosts() {
 		const nextPage = page + postsPerPage;
